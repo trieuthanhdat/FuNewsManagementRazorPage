@@ -1,0 +1,15 @@
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\bin\Debug\net8.0\FUNewsManagement.Infrastructure.deps.json
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\bin\Debug\net8.0\FUNewsManagement.Infrastructure.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\bin\Debug\net8.0\FUNewsManagement.Infrastructure.pdb
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\bin\Debug\net8.0\FUNewsManagement.Domain.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\bin\Debug\net8.0\FUNewsManagement.Domain.pdb
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.csproj.AssemblyReference.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.AssemblyInfoInputs.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.AssemblyInfo.cs
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.csproj.CoreCompileInputs.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsMa.CF20A91A.Up2Date
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\refint\FUNewsManagement.Infrastructure.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\FUNewsManagement.Infrastructure.pdb
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Infrastructure\obj\Debug\net8.0\ref\FUNewsManagement.Infrastructure.dll

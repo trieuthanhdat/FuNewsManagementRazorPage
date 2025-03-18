@@ -1,0 +1,14 @@
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\bin\Debug\net8.0\FUNewsManagement.Domain.deps.json
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\bin\Debug\net8.0\FUNewsManagement.Domain.runtimeconfig.json
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\bin\Debug\net8.0\FUNewsManagement.Domain.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\bin\Debug\net8.0\FUNewsManagement.Domain.pdb
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.csproj.AssemblyReference.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.AssemblyInfoInputs.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.AssemblyInfo.cs
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.csproj.CoreCompileInputs.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\refint\FUNewsManagement.Domain.dll
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.pdb
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\FUNewsManagement.Domain.genruntimeconfig.cache
+C:\WorkSpace\SchoolWork\PRN222\Assignment_2\TrieuThanhDat_SE150136_A02\FUNewsManagement.Domain\obj\Debug\net8.0\ref\FUNewsManagement.Domain.dll

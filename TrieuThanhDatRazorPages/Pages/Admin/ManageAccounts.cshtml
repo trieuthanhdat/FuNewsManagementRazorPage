@@ -1,0 +1,143 @@
+﻿@page
+@using FUNewsManagement.Domain.Shared
+@model TrieuThanhDatRazorPages.Pages.Admin.ManageAccountsModel
+@{
+    ViewData["Title"] = "Manage User Accounts";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary"><i class="fas fa-users"></i> Manage User Accounts</h2>
+        <button class="btn btn-success" onclick="openCreateModal()">
+            <i class="fas fa-user-plus"></i> Add User
+        </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="🔍 Search by name or email..."
+                   id="searchBox" onkeyup="searchUsers()" />
+        </div>
+    </div>
+
+    <!-- User Table -->
+    <div class="table-responsive">
+        <table class="table table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>RowID</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                @if (Model.Users != null && Model.Users.Any())
+                {
+                    var loggedInUser = Model.Users.FirstOrDefault(u => u.AccountEmail == Model.CurrentUserEmail);
+                    var otherUsers = Model.Users.Where(u => u.AccountEmail != Model.CurrentUserEmail).ToList();
+
+                    <!-- Show Logged-in User First -->
+                    @if (loggedInUser != null)
+                    {
+                        <tr id="userRow-@loggedInUser.AccountID.Value" class="table-primary">
+                            <td class="user-id">@loggedInUser.AccountID</td>
+                            <td class="user-name">@loggedInUser.AccountName</td>
+                            <td class="user-email">@loggedInUser.AccountEmail</td>
+                            <td class="user-role">
+                                <span class="badge bg-info">@loggedInUser.RoleName</span>
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openEditModal(@loggedInUser.AccountID)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <!-- Hide delete button for logged-in user -->
+                                <button class="btn btn-danger btn-sm" disabled title="Cannot delete yourself">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    }
+
+                    <!-- Show Other Users -->
+                    @foreach (var user in otherUsers)
+                    {
+                        <tr id="userRow-@user.AccountID.Value">
+                            <td class="user-id">@user.AccountID</td>
+                            <td class="user-name">@user.AccountName</td>
+                            <td class="user-email">@user.AccountEmail</td>
+                            <td class="user-role">
+                                <span class="badge bg-info">@user.RoleName</span>
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openEditModal(@user.AccountID)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(@user.AccountID)">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr id="noUsersRow">
+                        <td colspan="6" class="text-center text-muted">No users found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- User Modal (Create/Edit) -->
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="modalTitle">
+                    <i class="fas fa-user-plus"></i> Add User
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="userForm" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <input type="hidden" id="userId" name="AccountID">
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-user"></i> Name</label>
+                        <input type="text" class="form-control" id="userName" name="AccountName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" class="form-control" id="userEmail" name="AccountEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-user-tag"></i> Role</label>
+                        <select class="form-select" id="userRole" name="AccountRole">
+                            <option value="0">Admin</option>
+                            <option value="1">Staff</option>
+                            <option value="2">Lecturer</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-key"></i> Password</label>
+                        <input type="password" class="form-control" id="userPassword" name="Password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/manageAccounts.js"></script>
+}

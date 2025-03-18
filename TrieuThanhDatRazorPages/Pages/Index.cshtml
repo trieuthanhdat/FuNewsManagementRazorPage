@@ -1,0 +1,16 @@
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/newsHub")
+        .build();
+
+    connection.on("ReceiveNewsUpdate", function(newsTitle) {
+        let newsList = document.getElementById("newsList");
+        let listItem = document.createElement("li");
+        listItem.textContent = newsTitle;
+        newsList.appendChild(listItem);
+    });
+
+    connection.start().catch(err => console.error(err));
+</script>

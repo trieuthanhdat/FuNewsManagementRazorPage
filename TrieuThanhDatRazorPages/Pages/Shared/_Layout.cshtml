@@ -1,0 +1,179 @@
+﻿@using FUNewsManagement.App.Interfaces
+@inject IAccountService _accountService
+@{
+    var accountEmail = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value;
+    var systemAccount = await _accountService.GetAccountByEmailAsync(accountEmail);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FUNewsManagement</title>
+
+    <!-- Bootstrap & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Custom CSS -->
+    <style>
+        /* Navbar */
+        .navbar {
+            background-color: #007bff !important;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+            font-size: 1.25rem;
+        }
+
+        .nav-link {
+            color: white !important;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link:hover {
+                text-decoration: underline;
+                color: #dcecff !important;
+            }
+
+        .dropdown-menu {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .dropdown-item {
+            color: white !important;
+            transition: background-color 0.2s ease;
+        }
+
+            .dropdown-item:hover {
+                background-color: #0056b3;
+            }
+
+        /* Active Link */
+        .nav-item .nav-link.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- jQuery (Make sure it's loaded before Bootstrap & other scripts) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        if (typeof jQuery === "undefined") {
+            console.error("🚨 jQuery failed to load! Check your CDN.");
+        } else {
+            console.log("✅ jQuery Loaded Successfully.");
+        }
+    </script>
+
+    <!-- SignalR (Ensure this is loaded after jQuery) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <i class="fa fa-newspaper"></i> FUNewsManagement
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/Admin/Index">Home</a>
+                            </li>
+                        }
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated && systemAccount != null)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                    <i class="fa fa-user-circle"></i> @systemAccount.AccountName
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="/Admin">
+                                            <i class="fa fa-cogs"></i> Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-danger" href="/Auth/Logout">
+                                            <i class="fa fa-sign-out-alt"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Auth/Login">
+                                    <i class="fa fa-sign-in-alt"></i> Login
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container mt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer mt-auto">
+        <div class="container">
+            &copy; 2025 - FUNewsManagement | <a href="/Privacy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle (Includes Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Site Scripts -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Highlight Active Page in Navbar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentUrl = window.location.pathname.toLowerCase();
+            document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+                if (link.getAttribute("href").toLowerCase() === currentUrl) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

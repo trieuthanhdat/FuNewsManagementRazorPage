@@ -1,0 +1,74 @@
+﻿@page
+@model TrieuThanhDatRazorPages.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Admin Welcome Card -->
+        <div class="col-lg-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="text-primary">Welcome, Admin</h2>
+                    <p class="text-muted">
+                        Email: <strong>@User.Identity.Name</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-success shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Accounts</h5>
+                    <p class="card-text">View and manage all system accounts.</p>
+                    <a href="/Admin/ManageAccounts" class="btn btn-light">Go to Accounts</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card text-white bg-info shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Generate Reports</h5>
+                    <p class="card-text">View system statistics and generate reports.</p>
+                    <a href="/Admin/GenerateReports" class="btn btn-light">Generate Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Stats -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="display-6 text-primary">45</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Active News Articles</h5>
+                    <p class="display-6 text-success">128</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Pending Approvals</h5>
+                    <p class="display-6 text-warning">6</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
