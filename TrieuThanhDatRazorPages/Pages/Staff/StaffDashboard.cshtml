@@ -1,0 +1,57 @@
+﻿@page
+@model TrieuThanhDatRazorPages.Pages.Staff.StaffDashboardModel
+@{
+    ViewData["Title"] = "Staff Dashboard";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary"><i class="fas fa-user"></i> Staff Dashboard</h2>
+
+    <!-- Profile Management Section -->
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><i class="fas fa-user-edit"></i> Manage Profile</h5>
+                    <p class="text-muted">Update personal details and change password.</p>
+                    <a href="/Staff/Profile" class="btn btn-primary"><i class="fas fa-user-cog"></i> Edit Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manage Categories -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><i class="fas fa-folder"></i> Manage Categories</h5>
+                    <p class="text-muted">Add, edit, or remove categories.</p>
+                    <a href="/Staff/ManageCategories" class="btn btn-success"><i class="fas fa-tasks"></i> Manage Categories</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manage News Articles -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><i class="fas fa-newspaper"></i> Manage News</h5>
+                    <p class="text-muted">Create, update, and delete articles.</p>
+                    <a href="/Staff/ManageNews" class="btn btn-info"><i class="fas fa-edit"></i> Manage News</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News History -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-history"></i> News History</h5>
+                    <p class="text-muted">View your previously created news articles.</p>
+                    <a href="/Staff/NewsHistory" class="btn btn-dark"><i class="fas fa-clock"></i> View History</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

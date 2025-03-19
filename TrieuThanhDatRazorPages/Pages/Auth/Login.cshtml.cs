@@ -54,15 +54,18 @@ namespace TrieuThanhDatRazorPages.Pages.Auth
             }
 
             // Redirect based on user role
-            if (role == 0)
+            if (role == 0) //admin
             {
                 return RedirectToPage("/Admin/Index");
             }
+            else if(role == 1) //staff
+            {
+                return RedirectToPage("/Staff/StaffDashboard");
+            }
             else
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Auth/Login");
             }
         }
-
     }
 }

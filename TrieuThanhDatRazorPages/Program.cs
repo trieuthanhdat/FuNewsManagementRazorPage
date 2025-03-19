@@ -28,7 +28,10 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 // Register Services
 // Generic Repository for NewsArticles
 builder.Services.AddScoped<IGenericRepository<NewsArticle>, GenericRepository<NewsArticle>>();
+builder.Services.AddScoped<IGenericRepository<Tag>, GenericRepository<Tag>>();
 builder.Services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ITagService, TagService>();
 
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
@@ -75,9 +78,13 @@ app.Use(async (context, next) =>
         {
             context.Response.Redirect("/Admin/Index", false);
         }
+        else if (context.User.IsInRole("Staff"))
+        {
+            context.Response.Redirect("/Staff/StaffDashboard", false);
+        }
         else
         {
-            context.Response.Redirect("/Index", false);
+            context.Response.Redirect("/Auth/Login", false);
         }
         return;
     }
@@ -99,10 +106,13 @@ async Task SeedDefaultAdminAsync(WebApplication app)
     var defaultAdminPassword = config["DefaultAdmin:Password"];
     var defaultAdminRole = int.Parse(config["DefaultAdmin:Role"]);
 
-    // Check if the Admin already exists
-    if (!await context.SystemAccounts.AnyAsync(u => u.AccountEmail == defaultAdminEmail))
-    {
-        var hashedPassword = passwordHasher.HashPassword(defaultAdminPassword);
+    // Check if Admin already exists, also checking ROLE to avoid overrides
+    var existingAdmin = await context.SystemAccounts
+        .Where(u => u.AccountEmail == defaultAdminEmail && u.AccountRole == defaultAdminRole)
+        .FirstOrDefaultAsync();
+
+    if (existingAdmin == null)
+    {  var hashedPassword = passwordHasher.HashPassword(defaultAdminPassword);
         var adminUser = new SystemAccount
         {
             AccountName = "Default Admin",
@@ -111,7 +121,9 @@ async Task SeedDefaultAdminAsync(WebApplication app)
             AccountRole = defaultAdminRole
         };
 
-        context.SystemAccounts.Add(adminUser);
+        await context.SystemAccounts.AddAsync(adminUser); 
         await context.SaveChangesAsync();
     }
 }
+
+

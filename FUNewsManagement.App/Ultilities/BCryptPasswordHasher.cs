@@ -18,14 +18,22 @@ namespace FUNewsManagement.App.Ultilities
         }
         public bool VerifyPassword(string enteredPassword, string storedHash)
         {
+            // Handle the null case
+            if (string.IsNullOrEmpty(storedHash))
+            {
+                return false; // Prevent exception & return false for an invalid hash
+            }
+
             if (!storedHash.StartsWith("$2a$") && !storedHash.StartsWith("$2b$"))
             {
                 // Stored password is plain-text; compare directly
                 return enteredPassword == storedHash;
             }
+
             // Stored password is hashed; verify with BCrypt
             return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHash);
         }
+
     }
 
 

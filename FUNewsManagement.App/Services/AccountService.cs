@@ -42,6 +42,13 @@ namespace FUNewsManagement.App.Services
             return await _context.SystemAccounts
                 .FirstOrDefaultAsync(a => a.AccountEmail == email);
         }
+        public async Task<bool> VerifyPasswordAsync(short accountId, string currentPassword)
+        {
+            var user = await _context.SystemAccounts.FindAsync(accountId);
+            if (user == null) return false;
+
+            return _passwordHasher.VerifyPassword(currentPassword, user.AccountPassword);
+        }
         /// <summary>
         /// Authenticate user by Email & Password
         /// </summary>
@@ -176,7 +183,6 @@ namespace FUNewsManagement.App.Services
             var userEntity = await _context.SystemAccounts.FindAsync(registerDTO.AccountID);
             if (userEntity == null)
                 return 1; // Account not found
-
             userEntity.AccountName = registerDTO.AccountName;
             userEntity.AccountEmail = registerDTO.AccountEmail;
             userEntity.AccountRole = registerDTO.AccountRole;
@@ -192,7 +198,23 @@ namespace FUNewsManagement.App.Services
 
             return 0; // Success
         }
+        /// <summary>
+        /// Updates an existing account
+        /// </summary>
+        public async Task<short> UpdateAccountAsync(ProfileUpdateDTO registerDTO)
+        {
+            var userEntity = await _context.SystemAccounts.FindAsync(registerDTO.AccountID);
+            if (userEntity == null)
+                return 1; // Account not found
+            userEntity.AccountName = registerDTO.AccountName;
+            userEntity.AccountEmail = registerDTO.AccountEmail;
+            userEntity.AccountPassword = registerDTO.NewPassword;
 
+            _context.SystemAccounts.Update(userEntity);
+            await _context.SaveChangesAsync();
+            await _accountHub.Clients.All.SendAsync("ReceiveAccountUpdated", userEntity);
+            return 0; // Success
+        }
         /// <summary>
         /// Retrieves an account by ID
         /// </summary>

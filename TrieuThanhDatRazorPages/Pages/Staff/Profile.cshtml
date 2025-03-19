@@ -1,0 +1,66 @@
+﻿@page
+@model TrieuThanhDatRazorPages.Pages.Staff.ProfileModel
+@{
+    ViewData["Title"] = "Manage Profile";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary"><i class="fas fa-user-edit"></i> Manage Profile</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle"></i> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <!-- Hidden AccountID Field -->
+        <input type="hidden" asp-for="ProfileUpdate.AccountID" />
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input asp-for="ProfileUpdate.AccountName" class="form-control" required />
+            <span asp-validation-for="ProfileUpdate.AccountName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input asp-for="ProfileUpdate.AccountEmail" class="form-control" required />
+            <span asp-validation-for="ProfileUpdate.AccountEmail" class="text-danger"></span>
+        </div>
+
+        <hr />
+
+        <div class="mb-3">
+            <label class="form-label">Current Password</label>
+            <input asp-for="ProfileUpdate.CurrentPassword" class="form-control" type="password" required />
+            <span asp-validation-for="ProfileUpdate.CurrentPassword" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">New Password (Optional)</label>
+            <input asp-for="ProfileUpdate.NewPassword" class="form-control" type="password" />
+            <span asp-validation-for="ProfileUpdate.NewPassword" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Confirm New Password</label>
+            <input asp-for="ProfileUpdate.ConfirmNewPassword" class="form-control" type="password" />
+            <span asp-validation-for="ProfileUpdate.ConfirmNewPassword" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+    </form>
+</div>

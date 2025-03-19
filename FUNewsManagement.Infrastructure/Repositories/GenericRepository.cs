@@ -20,7 +20,11 @@ namespace FUNewsManagement.Infrastructure.Repositories
             _context = context;
             _dbSet = context.Set<T>();
         }
-        // ✅ Modify GetAllAsync to support `include`
+        public async Task<T?> GetFirstOrDefaultAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _dbSet.FirstOrDefaultAsync(filter);
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync(
             Func<IQueryable<T>, IQueryable<T>>? include = null
         )
@@ -30,7 +34,7 @@ namespace FUNewsManagement.Infrastructure.Repositories
             return await query.ToListAsync();
         }
 
-        // Modify GetAsync to support `filter`, `orderBy`, and `include`
+        // GetAsync to support `filter`, `orderBy`, and `include`
         public async Task<IEnumerable<T>> GetAsync(
             Expression<Func<T, bool>>? filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
@@ -53,6 +57,8 @@ namespace FUNewsManagement.Infrastructure.Repositories
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
 
         public async Task<T> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
+        public async Task<T> GetByIdAsync(string id) => await _dbSet.FindAsync(id);
+        public async Task<T> GetByIdAsync(short id) => await _dbSet.FindAsync(id);
 
         public async Task AddAsync(T entity)
         {
@@ -67,6 +73,24 @@ namespace FUNewsManagement.Infrastructure.Repositories
         }
 
         public async Task DeleteAsync(int id)
+        {
+            var entity = await _dbSet.FindAsync(id);
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task DeleteAsync(string id)
+        {
+            var entity = await _dbSet.FindAsync(id);
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task DeleteAsync(short id)
         {
             var entity = await _dbSet.FindAsync(id);
             if (entity != null)

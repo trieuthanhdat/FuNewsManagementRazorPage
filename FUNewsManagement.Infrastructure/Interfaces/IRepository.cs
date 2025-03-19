@@ -9,6 +9,7 @@ namespace FUNewsManagement.Infrastructure.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
+        Task<T?> GetFirstOrDefaultAsync(Expression<Func<T, bool>> filter);
         Task<IEnumerable<T>> GetAllAsync(Func<IQueryable<T>, IQueryable<T>>? include = null);
         Task<IEnumerable<T>> GetAsync
         (
@@ -18,9 +19,13 @@ namespace FUNewsManagement.Infrastructure.Interfaces
         );
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(short id);
+        Task<T> GetByIdAsync(string id);
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(int id);
+        Task DeleteAsync(short id);
+        Task DeleteAsync(string id);
     }
 
 }

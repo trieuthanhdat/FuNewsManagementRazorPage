@@ -1,0 +1,169 @@
+﻿@page
+@model TrieuThanhDatRazorPages.Pages.Staff.ManageNewsModel
+@{
+    ViewData["Title"] = "Manage News Articles";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary"><i class="fas fa-newspaper"></i> Manage News</h2>
+
+    <!-- Success & Error Messages -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <!-- Search Bar -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="searchBox" placeholder="🔍 Search news by title or headline...">
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-success" onclick="openCreateModal()">
+                <i class="fas fa-plus"></i> Add News
+            </button>
+        </div>
+    </div>
+
+    <!-- News Table -->
+    <div class="table-responsive">
+        @if (Model.NewsList == null || !Model.NewsList.Any())
+        {
+            <div class="alert alert-warning text-center">
+                No news articles found.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover shadow-sm" id="newsTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Headline</th>
+                        <th>Created Date</th>
+                        <th>Category</th>
+                        <th>Source</th>
+                        <th>Status</th>
+                        <th>Modified Date</th>
+                        <th>Created By</th>
+                        <th>Tags</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var news in Model.NewsList)
+                    {
+                        <tr id="newsRow-@news.NewsArticleID">
+                            <td>@news.NewsArticleID</td>
+                            <td>@news.NewsTitle</td>
+                            <td>@news.Headline</td>
+                            <td>@news.CreatedDate.ToString("yyyy-MM-dd")</td>
+                            <td>@news.CategoryName</td>
+                            <td>@(string.IsNullOrWhiteSpace(news.NewsSource) ? "N/A" : news.NewsSource)</td>
+                            <td>@(news.NewsStatus ? "Active" : "Inactive")</td>
+                            <td>@(news.ModifiedDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+                            <td>@(news.CreatedByID > 0 ? news.CreatedByID.ToString() : "Unknown")</td>
+                            <td>
+                                @if (news.Tags != null && news.Tags.Any())
+                                {
+                                    <span class="badge bg-info">@string.Join(", ", news.Tags.Select(t => t.TagName))</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No Tags</span>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openEditModal(@news.NewsArticleID)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(@news.NewsArticleID)">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<!-- Modals for Create & Edit News -->
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="modalTitle">
+                    <i class="fas fa-plus"></i> Add News
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="newsForm" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <input type="hidden" id="newsId">
+
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" id="newsTitle" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Headline</label>
+                        <input type="text" class="form-control" id="newsHeadline" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="newsCategory" required>
+                            <option value="">-- Select Category --</option>
+                            @if (Model.Categories != null)
+                            {
+                                foreach (var category in Model.Categories)
+                                {
+                                    <option value="@category.CategoryID">@category.CategoryName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <input type="text" class="form-control" id="newsTags" placeholder="Comma-separated tags">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Content</label>
+                        <textarea class="form-control" id="newsContent" rows="4" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Source</label>
+                        <input type="text" class="form-control" id="newsSource">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="newsStatus">
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/manageNews.js"></script>
+}

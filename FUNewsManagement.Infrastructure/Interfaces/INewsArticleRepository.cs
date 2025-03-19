@@ -24,8 +24,8 @@ namespace FUNewsManagement.Infrastructure.Interfaces
         Task<Dictionary<string, int>> GetNewsCountByCategoryAsync();
 
         // Get News by Author & Category
-        Task<List<NewsArticle>> GetNewsByAuthorAsync(int authorId);
-        Task<List<NewsArticle>> GetNewsByCategoryIdAsync(int categoryId);
+        Task<List<NewsArticle>> GetNewsByAuthorAsync(short authorId);
+        Task<List<NewsArticle>> GetNewsByCategoryIdAsync(short categoryId);
     }
 
 }

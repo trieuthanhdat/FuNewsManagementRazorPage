@@ -10,6 +10,7 @@ namespace FUNewsManagement.App.Interfaces
 {
     public interface IAccountService
     {
+        Task<bool> VerifyPasswordAsync(short accountId, string currentPassword);
         Task<SystemAccount> GetAccountByEmailAsync(string email);
         /// **🔹 Authenticate User & Return Status Code**
         Task<(int Status, int Role)> AuthenticateAsync(LoginDTO loginDTO);
@@ -23,6 +24,7 @@ namespace FUNewsManagement.App.Interfaces
 
         /// **🔹 Update an Existing User**
         Task<short> UpdateAccountAsync(RegisterDTO registerDTO);
+        Task<short> UpdateAccountAsync(ProfileUpdateDTO registerDTO);
 
         /// **🔹 Get a User By ID**
         Task<RegisterDTO> GetAccountByIdAsync(short id);

@@ -21,10 +21,10 @@ namespace FUNewsManagement.Infrastructure.Repositories
         }
 
         // Get News by Category ID
-        public async Task<List<NewsArticle>> GetNewsByCategoryIdAsync(int categoryId)
+        public async Task<List<NewsArticle>> GetNewsByCategoryIdAsync(short categoryId)
         {
             return await _context.NewsArticles
-                .Where(n => n.CategoryId == categoryId)
+                .Where(n => n.CategoryId.GetValueOrDefault(-1) == categoryId)
                 .OrderByDescending(n => n.CreatedDate)
                 .ToListAsync();
         }
@@ -39,10 +39,10 @@ namespace FUNewsManagement.Infrastructure.Repositories
         }
 
         // Get News by Author ID
-        public async Task<List<NewsArticle>> GetNewsByAuthorAsync(int authorId)
+        public async Task<List<NewsArticle>> GetNewsByAuthorAsync(short authorId)
         {
             return await _context.NewsArticles
-                .Where(n => n.CreatedById == authorId)
+                .Where(n => n.CreatedById.GetValueOrDefault(-1) == authorId)
                 .OrderByDescending(n => n.CreatedDate)
                 .ToListAsync();
         }
@@ -95,15 +95,15 @@ namespace FUNewsManagement.Infrastructure.Repositories
                 .Select(news => new NewsArticleDTO
                 {
                     NewsArticleID = news.NewsArticleId,
-                    NewsTitle = news.NewsTitle,
+                    NewsTitle = news.NewsTitle != null ? news.NewsTitle.ToString() : "",
                     Headline = news.Headline,
-                    CreatedDate = news.CreatedDate.Value,
-                    NewsContent = news.NewsContent,
+                    CreatedDate = news.CreatedDate != null ? news.CreatedDate.Value : DateTime.UtcNow,
+                    NewsContent = news.NewsContent ?? "",
                     NewsSource = news.NewsSource,
                     CategoryID = news.CategoryId ?? 0,
                     CategoryName = news.Category != null ? news.Category.CategoryName : "Uncategorized",
-                    NewsStatus = news.NewsStatus.Value,
-                    CreatedByID = news.CreatedBy != null ? news.CreatedBy.AccountId : -1
+                    NewsStatus = news.NewsStatus != null ? news.NewsStatus.Value : false,
+                    CreatedByID = news.CreatedBy != null ? news.CreatedBy.AccountId : (short?)-1
                 })
                 .ToListAsync();
         }

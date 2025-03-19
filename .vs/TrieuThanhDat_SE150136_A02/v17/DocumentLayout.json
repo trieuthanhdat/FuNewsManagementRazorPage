@@ -3,24 +3,116 @@
   "WorkspaceRootPath": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\wwwroot\\js\\report.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\wwwroot\\js\\report.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\staff\\managenews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\staff\\managenews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\staff\\managenews.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\staff\\managenews.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\wwwroot\\js\\managenews.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\wwwroot\\js\\managenews.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\wwwroot\\js\\manageaccounts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\wwwroot\\js\\manageaccounts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\report.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\report.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\manageaccounts.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\manageaccounts.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\manageaccounts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\manageaccounts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\wwwroot\\js\\report.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\wwwroot\\js\\report.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.app\\services\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|solutionrelative:funewsmanagement.app\\services\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.domain\\entities\\newsarticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|solutionrelative:funewsmanagement.domain\\entities\\newsarticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\staff\\profile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\staff\\profile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\staff\\staffdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\staff\\staffdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123F9637-0ED7-44EC-AC1B-706578EF0A28}|FUNewsManagement.Infrastructure\\FUNewsManagement.Infrastructure.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.infrastructure\\repositories\\newsarticlerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123F9637-0ED7-44EC-AC1B-706578EF0A28}|FUNewsManagement.Infrastructure\\FUNewsManagement.Infrastructure.csproj|solutionrelative:funewsmanagement.infrastructure\\repositories\\newsarticlerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\report.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\report.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.app\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|solutionrelative:funewsmanagement.app\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.app\\ultilities\\bcryptpasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|solutionrelative:funewsmanagement.app\\ultilities\\bcryptpasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\staff\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\staff\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.domain\\dtos\\profileupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|solutionrelative:funewsmanagement.domain\\dtos\\profileupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.app\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EC4ADB5-C507-4BAB-9DD2-9A99B75B8172}|FUNewsManagement.App\\FUNewsManagement.App.csproj|solutionrelative:funewsmanagement.app\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\auth\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\auth\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\auth\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\auth\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\staff\\staffdashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\staff\\staffdashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\trieuthanhdatrazorpages\\pages\\admin\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A9617B7-FEAF-45E2-9CF2-0E472ED6D96E}|TrieuThanhDatRazorPages\\TrieuThanhDatRazorPages.csproj|solutionrelative:trieuthanhdatrazorpages\\pages\\admin\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.domain\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|solutionrelative:funewsmanagement.domain\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|c:\\workspace\\schoolwork\\prn222\\assignment_2\\trieuthanhdat_se150136_a02\\funewsmanagement.domain\\dtos\\edituserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B63CFEAC-E1A5-40BF-B522-559077679746}|FUNewsManagement.Domain\\FUNewsManagement.Domain.csproj|solutionrelative:funewsmanagement.domain\\dtos\\edituserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +122,344 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TagService.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Services\\TagService.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.App\\Services\\TagService.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Services\\TagService.cs",
+              "RelativeToolTip": "FUNewsManagement.App\\Services\\TagService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T09:33:56.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ManageAccounts.cshtml",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAuwGsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T09:08:14.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Admin\\Index.cshtml.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\Index.cshtml.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Admin\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T09:08:12.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ManageAccounts.cshtml.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Admin\\ManageAccounts.cshtml.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowEcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T09:08:09.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NewsArticle.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\Entities\\NewsArticle.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.Domain\\Entities\\NewsArticle.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\Entities\\NewsArticle.cs",
+              "RelativeToolTip": "FUNewsManagement.Domain\\Entities\\NewsArticle.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAcwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T08:23:25.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ICategoryService.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Interfaces\\ICategoryService.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.App\\Interfaces\\ICategoryService.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Interfaces\\ICategoryService.cs",
+              "RelativeToolTip": "FUNewsManagement.App\\Interfaces\\ICategoryService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T08:18:04.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "NewsArticleRepository.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Infrastructure\\Repositories\\NewsArticleRepository.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.Infrastructure\\Repositories\\NewsArticleRepository.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Infrastructure\\Repositories\\NewsArticleRepository.cs",
+              "RelativeToolTip": "FUNewsManagement.Infrastructure\\Repositories\\NewsArticleRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T08:12:01.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManageNews.cshtml.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAuwFoAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T07:52:36.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageNews.cshtml",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Staff\\ManageNews.cshtml",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAAKcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T07:52:31.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "manageNews.js",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\wwwroot\\js\\manageNews.js",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\wwwroot\\js\\manageNews.js",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\wwwroot\\js\\manageNews.js",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\wwwroot\\js\\manageNews.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-19T07:52:05.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BCryptPasswordHasher.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Ultilities\\BCryptPasswordHasher.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.App\\Ultilities\\BCryptPasswordHasher.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Ultilities\\BCryptPasswordHasher.cs",
+              "RelativeToolTip": "FUNewsManagement.App\\Ultilities\\BCryptPasswordHasher.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAkwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T07:21:19.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProfileUpdateDTO.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\DTOs\\ProfileUpdateDTO.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.Domain\\DTOs\\ProfileUpdateDTO.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\DTOs\\ProfileUpdateDTO.cs",
+              "RelativeToolTip": "FUNewsManagement.Domain\\DTOs\\ProfileUpdateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T07:15:46.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Interfaces\\IAccountService.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.App\\Interfaces\\IAccountService.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.App\\Interfaces\\IAccountService.cs",
+              "RelativeToolTip": "FUNewsManagement.App\\Interfaces\\IAccountService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAtwBoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T07:14:14.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Program.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Program.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Program.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwB4AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T05:48:22.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Logout.cshtml",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Auth\\Logout.cshtml",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Auth\\Logout.cshtml",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Auth\\Logout.cshtml",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Auth\\Logout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T05:47:23.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwEAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T03:59:12.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Auth\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T03:59:10.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Profile.cshtml.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAowB0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T03:53:32.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "StaffDashboard.cshtml.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml.cs",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml.cs",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T03:53:28.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Staff\\Profile.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAB0AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T03:52:52.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\DTOs\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.Domain\\DTOs\\RegisterDTO.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\DTOs\\RegisterDTO.cs",
+              "RelativeToolTip": "FUNewsManagement.Domain\\DTOs\\RegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T03:52:12.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "EditUserDTO.cs",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\DTOs\\EditUserDTO.cs",
+              "RelativeDocumentMoniker": "FUNewsManagement.Domain\\DTOs\\EditUserDTO.cs",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\FUNewsManagement.Domain\\DTOs\\EditUserDTO.cs",
+              "RelativeToolTip": "FUNewsManagement.Domain\\DTOs\\EditUserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T03:52:09.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StaffDashboard.cshtml",
+              "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml",
+              "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml",
+              "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml",
+              "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Staff\\StaffDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T03:50:22.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "manageAccounts.js",
               "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\wwwroot\\js\\manageAccounts.js",
               "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\wwwroot\\js\\manageAccounts.js",
               "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\wwwroot\\js\\manageAccounts.js",
               "RelativeToolTip": "TrieuThanhDatRazorPages\\wwwroot\\js\\manageAccounts.js",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-19T03:30:36.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T03:30:36.433Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
               "Title": "Report.cshtml.cs",
               "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml.cs",
               "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml.cs",
               "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml.cs",
               "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAqwBIAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAwHUAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T03:24:19.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T03:24:19.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "report.js",
               "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\wwwroot\\js\\report.js",
               "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\wwwroot\\js\\report.js",
               "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\wwwroot\\js\\report.js",
               "RelativeToolTip": "TrieuThanhDatRazorPages\\wwwroot\\js\\report.js",
-              "ViewState": "AgIAADgAAAAAAAAAAAAcwFAAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwFAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-19T03:17:31.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T03:17:31.887Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAE4AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAQAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-19T03:16:33.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T03:16:33.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 25,
               "Title": "Report.cshtml",
               "DocumentMoniker": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml",
               "RelativeDocumentMoniker": "TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml",
               "ToolTip": "C:\\WorkSpace\\SchoolWork\\PRN222\\Assignment_2\\TrieuThanhDat_SE150136_A02\\TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml",
               "RelativeToolTip": "TrieuThanhDatRazorPages\\Pages\\Admin\\Report.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-19T03:00:02.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T03:00:02.098Z"
             }
           ]
         }
