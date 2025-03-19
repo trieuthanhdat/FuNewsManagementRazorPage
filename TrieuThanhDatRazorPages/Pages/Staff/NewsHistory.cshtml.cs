@@ -1,27 +1,22 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FUNewsManagement.API.Hubs;
+using FUNewsManagement.App.Interfaces;
+using FUNewsManagement.Domain.DTOs;
+using FUNewsManagement.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using FUNewsManagement.App.Interfaces;
-using FUNewsManagement.Domain.Entities;
-using FUNewsManagement.Domain.DTOs;
-using FUNewsManagement.API.Hubs;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 
 namespace TrieuThanhDatRazorPages.Pages.Staff
 {
-
-    [Authorize(Roles = "Staff")]
-    public class ManageNewsModel : PageModel
+    public class NewsHistoryModel : PageModel
     {
         private readonly INewsService _newsService;
         private readonly ITagService _tagService;
         private readonly ICategoryService _categoryService;
         private readonly IHubContext<NewsHub> _newsHub;
 
-        public ManageNewsModel
+        public NewsHistoryModel
         (
             INewsService newsService,
             ITagService tagService,
@@ -44,7 +39,7 @@ namespace TrieuThanhDatRazorPages.Pages.Staff
         public async Task<IActionResult> OnGetAsync()
         {
             bool isSuccess = await OnGetData();
-            if(!isSuccess) return Unauthorized();
+            if (!isSuccess) return Unauthorized();
 
             return Page();
         }
@@ -58,20 +53,20 @@ namespace TrieuThanhDatRazorPages.Pages.Staff
             }
 
             // Load news articles for this staff
-            NewsList = (await _newsService.GetAllNewsAsync())
+            NewsList = (await _newsService.GetNewsByAuthorAsync(userId))
                 .Select(n => new NewsArticleDTO
                 {
-                    NewsArticleID = n.NewsArticleId,
+                    NewsArticleID = n.NewsArticleID,
                     NewsTitle = n.NewsTitle,
                     Headline = n.Headline,
-                    CreatedDate = n.CreatedDate.GetValueOrDefault(),
+                    CreatedDate = n.CreatedDate,
                     NewsContent = n.NewsContent ?? string.Empty,
                     NewsSource = n.NewsSource ?? "Unknown",
-                    CategoryID = n.CategoryId.GetValueOrDefault(-1),
-                    CategoryName = n.Category != null ? n.Category.CategoryName : "Uncategorized",
-                    NewsStatus = n.NewsStatus ?? false,
-                    CreatedByID = n.CreatedById.GetValueOrDefault(-1),
-                    UpdatedByID = n.UpdatedById.GetValueOrDefault(-1),
+                    CategoryID = n.CategoryID.GetValueOrDefault(-1),
+                    CategoryName = n.CategoryName,
+                    NewsStatus = n.NewsStatus,
+                    CreatedByID = n.CreatedByID.GetValueOrDefault(-1),
+                    UpdatedByID = n.UpdatedByID.GetValueOrDefault(-1),
                     ModifiedDate = n.ModifiedDate,
                     // Convert Tags properly
                     Tags = n.Tags.Select(t => new Tag
@@ -265,7 +260,7 @@ namespace TrieuThanhDatRazorPages.Pages.Staff
 
                 return BadRequest("Failed to delete news article.");
             }
-           
+
             catch (Exception ex)
             {
                 Console.WriteLine($"❌ Server error: {ex.Message}");
@@ -273,5 +268,4 @@ namespace TrieuThanhDatRazorPages.Pages.Staff
             }
         }
     }
-
 }

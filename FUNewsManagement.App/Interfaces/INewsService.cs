@@ -25,7 +25,10 @@ namespace FUNewsManagement.App.Interfaces
         // News Management (CRUD)
         Task<bool> AddNewsAsync(NewsArticleDTO newsArticle);
         Task<bool> UpdateNewsAsync(NewsArticleDTO newsArticle);
-        Task<bool> DeleteNewsAsync(int newsId);
+        Task<bool> DeleteNewsAsync(string newsId);
+
+        Task<IEnumerable<NewsArticleDTO>> GetPublicNewsAsync();
+        Task<IEnumerable<NewsArticleDTO>> GetLecturerNewsAsync(short lecturerId);
     }
 
 }

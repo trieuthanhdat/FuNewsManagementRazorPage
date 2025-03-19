@@ -18,7 +18,7 @@ namespace FUNewsManagement.Domain.DTOs
         public short? CategoryID { get; set; }
         public bool NewsStatus { get; set; }
         public short? CreatedByID { get; set; }
-        public int? UpdatedByID { get; set; }
+        public short? UpdatedByID { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
         public string CategoryName { get; set; }

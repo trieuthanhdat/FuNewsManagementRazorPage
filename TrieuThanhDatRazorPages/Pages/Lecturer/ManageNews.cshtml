@@ -1,0 +1,57 @@
+﻿@page
+@model TrieuThanhDatRazorPages.Pages.Lecturer.ManageNewsModel
+@{
+    ViewData["Title"] = "News";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary"><i class="fas fa-newspaper"></i> News</h2>
+
+    <!-- Show Role -->
+    <p class="text-muted">You are viewing as: <strong>@Model.UserRole</strong></p>
+
+    <div class="table-responsive">
+        @if (Model.NewsList == null || !Model.NewsList.Any())
+        {
+            <div class="alert alert-warning text-center">
+                No news articles found.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover shadow-sm" id="newsTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Headline</th>
+                        <th>Created Date</th>
+                        <th>Category</th>
+                        <th>Source</th>
+                        <th>Status</th>
+                        <th>Modified Date</th>
+                        <th>Tags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var news in Model.NewsList)
+                    {
+                        <tr>
+                            <td>@news.NewsArticleID</td>
+                            <td>@news.NewsTitle</td>
+                            <td>@news.Headline</td>
+                            <td>@news.CreatedDate.ToString("yyyy-MM-dd")</td>
+                            <td>@news.CategoryName</td>
+                            <td>@news.NewsSource</td>
+                            <td>@(news.NewsStatus ? "Active" : "Inactive")</td>
+                            <td>@(news.ModifiedDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+                            <td>
+                                <span class="badge bg-info">@string.Join(", ", news.Tags.Select(t => t.TagName))</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

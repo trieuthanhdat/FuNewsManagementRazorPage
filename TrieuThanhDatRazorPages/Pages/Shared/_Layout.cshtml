@@ -100,7 +100,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
-                        @if (User.Identity.IsAuthenticated && systemAccount != null)
+                        @if (User.Identity.IsAuthenticated && systemAccount != null && systemAccount.AccountRole != 2)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area=""
@@ -119,12 +119,16 @@
                                     <i class="fa fa-user-circle"></i> @systemAccount.AccountName
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <a class="dropdown-item"
-                                           href="@(systemAccount.AccountRole == 0 ? "/Admin/Index" : "/Staff/StaffDashboard")">
-                                            <i class="fa fa-cogs"></i> Dashboard
-                                        </a>
-                                    </li>
+                                    @if (systemAccount != null && systemAccount.AccountRole != 2)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item"
+                                               href="@(systemAccount.AccountRole == 0 ? "/Admin/Index" : "/Staff/StaffDashboard")">
+                                                <i class="fa fa-cogs"></i> Dashboard
+                                            </a>
+                                        </li>
+                                    }
+                                   
                                     <li>
                                         <a class="dropdown-item text-danger" href="/Auth/Logout">
                                             <i class="fa fa-sign-out-alt"></i> Logout

@@ -29,6 +29,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 // Generic Repository for NewsArticles
 builder.Services.AddScoped<IGenericRepository<NewsArticle>, GenericRepository<NewsArticle>>();
 builder.Services.AddScoped<IGenericRepository<Tag>, GenericRepository<Tag>>();
+builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Category>>();
 builder.Services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ITagService, TagService>();
@@ -81,6 +82,10 @@ app.Use(async (context, next) =>
         else if (context.User.IsInRole("Staff"))
         {
             context.Response.Redirect("/Staff/StaffDashboard", false);
+        }
+        else if (context.User.IsInRole("Lecturer"))
+        {
+            context.Response.Redirect("/Lecturer/ManageNews", false);
         }
         else
         {

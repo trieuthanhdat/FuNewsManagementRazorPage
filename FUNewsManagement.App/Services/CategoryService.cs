@@ -1,4 +1,5 @@
 ﻿using FUNewsManagement.App.Interfaces;
+using FUNewsManagement.Domain.DTOs;
 using FUNewsManagement.Domain.Entities;
 using FUNewsManagement.Infrastructure.Interfaces;
 using System;
@@ -28,49 +29,85 @@ namespace FUNewsManagement.App.Services
             return await _categoryRepository.GetAllAsync();
         }
 
-        // Get a single category by ID
         public async Task<Category?> GetCategoryByIdAsync(short categoryId)
         {
             return await _categoryRepository.GetByIdAsync(categoryId);
         }
 
-        // Add a new category
-        public async Task<bool> AddCategoryAsync(Category category)
+        public async Task<bool> AddCategoryAsync(CategoryDTO category)
         {
             if (category == null || string.IsNullOrWhiteSpace(category.CategoryName))
                 return false; // Validation failed
 
-            await _categoryRepository.AddAsync(category);
+            // Check if category with the same name already exists
+            var existingCategory = await _categoryRepository.GetFirstOrDefaultAsync(c => c.CategoryName == category.CategoryName);
+            if (existingCategory != null)
+                return false;
+            var parentCate = category.ParentCategoryID != null
+                ? await GetCategoryByIdAsync(category.ParentCategoryID.Value)
+                : null;
+
+            var newCategory = new Category
+            {
+                CategoryName = category.CategoryName,
+                CategoryId = category.CategoryID, 
+                ParentCategory = parentCate,
+                ParentCategoryId = category.ParentCategoryID,
+                CategoryDesciption = category.CategoryDescription, 
+                IsActive = category.IsActive, 
+                InverseParentCategory = null, 
+                NewsArticles = null 
+            };
+
+            await _categoryRepository.AddAsync(newCategory);
             return true;
         }
 
-        // Update an existing category
-        public async Task<bool> UpdateCategoryAsync(Category category)
+        public async Task<bool> UpdateCategoryAsync(CategoryDTO category)
         {
-            var existingCategory = await _categoryRepository.GetByIdAsync(category.CategoryId);
+            var existingCategory = await _categoryRepository.GetByIdAsync(category.CategoryID);
             if (existingCategory == null)
                 return false; // Category not found
 
+            var duplicateCategory = await _categoryRepository.GetFirstOrDefaultAsync(c => c.CategoryName == category.CategoryName && c.CategoryId != category.CategoryID);
+            if (duplicateCategory != null)
+                return false; // Duplicate name found
+
+            var parentCate = category.ParentCategoryID != null
+                ? await GetCategoryByIdAsync(category.ParentCategoryID.Value)
+                : null;
+
             existingCategory.CategoryName = category.CategoryName;
-            existingCategory.CategoryDesciption = category.CategoryDesciption;
-            existingCategory.ParentCategoryId = category.ParentCategoryId;
+            existingCategory.CategoryDesciption = category.CategoryDescription;
+            existingCategory.ParentCategoryId = category.ParentCategoryID;
+            existingCategory.ParentCategory = parentCate;
             existingCategory.IsActive = category.IsActive;
 
             await _categoryRepository.UpdateAsync(existingCategory);
             return true;
         }
 
-        // Delete category (only if it's not associated with any NewsArticle)
+        // Delete a category (only if it's not linked to NewsArticles or Child Categories)
         public async Task<bool> DeleteCategoryAsync(short categoryId)
         {
-            // Check if any news articles are linked to this category
+            var category = await _categoryRepository.GetByIdAsync(categoryId);
+            if (category == null)
+                return false; // Category not found
+
+            // Check if category has linked news articles
             var relatedNews = await _newsRepository.GetAsync(n => n.CategoryId == categoryId);
             if (relatedNews.Any())
-                return false; // Cannot delete if category is linked to news
+                return false; // Cannot delete category with associated news
 
-            await _categoryRepository.DeleteAsync(categoryId);
+            // Check if category has child categories
+            var childCategories = await _categoryRepository.GetAsync(c => c.ParentCategoryId == categoryId);
+            if (childCategories.Any())
+                return false; // Cannot delete category with child categories
+
+            await _categoryRepository.DeleteAsync(category.CategoryId);
             return true;
         }
     }
+
 
 }

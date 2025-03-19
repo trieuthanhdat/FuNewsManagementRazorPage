@@ -1,0 +1,128 @@
+﻿@page
+@model TrieuThanhDatRazorPages.Pages.Staff.ManageCategoriesModel
+@{
+    ViewData["Title"] = "Manage Categories";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary"><i class="fas fa-folder-open"></i> Manage Categories</h2>
+
+    <!-- Success & Error Messages -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <!-- Search Bar -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="searchBox" placeholder="🔍 Search category...">
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-success" onclick="openCreateModal()">
+                <i class="fas fa-plus"></i> Add Category
+            </button>
+        </div>
+    </div>
+
+    <!-- Categories Table -->
+    <div class="table-responsive">
+        @if (Model.CategoryList == null || !Model.CategoryList.Any())
+        {
+            <div class="alert alert-warning text-center">
+                No categories found.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover shadow-sm" id="categoriesTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Parent Category</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in Model.CategoryList)
+                    {
+                        <tr id="categoryRow-@category.CategoryID">
+                            <td>@category.CategoryID</td>
+                            <td>@category.CategoryName</td>
+                            <td>@category.CategoryDescription</td>
+                            <td>@(category.ParentCategoryID > 0 ? category.ParentCategoryName : "None")</td>
+                            <td>@(category.IsActive ? "Active" : "Inactive")</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openEditModal(@category.CategoryID)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(@category.CategoryID)">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<!-- Modals for Create & Edit Categories -->
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="modalTitle">
+                    <i class="fas fa-plus"></i> Add Category
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="categoryForm">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <input type="hidden" id="categoryId">
+                    <div class="mb-3">
+                        <label class="form-label">Category Name</label>
+                        <input type="text" class="form-control" id="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="categoryDescription"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Parent Category</label>
+                        <select class="form-select" id="parentCategory">
+                            <option value="">-- No Parent --</option>
+                            @foreach (var category in Model.CategoryList)
+                            {
+                                <option value="@category.CategoryID">@category.CategoryName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="categoryStatus">
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/manageCategories.js"></script>
+}

@@ -62,6 +62,10 @@ namespace TrieuThanhDatRazorPages.Pages.Auth
             {
                 return RedirectToPage("/Staff/StaffDashboard");
             }
+            else if (role == 2) //Lecturer
+            {
+                return RedirectToPage("/Lecturer/ManageNews");
+            }
             else
             {
                 return RedirectToPage("/Auth/Login");

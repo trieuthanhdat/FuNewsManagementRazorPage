@@ -1,5 +1,13 @@
 ﻿$(document).ready(function () {
-    loadNewsArticles();
+
+    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/newsHub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.start()
+        .then(() => console.log("✅ Connected to SignalR!"))
+        .catch(err => console.error("❌ SignalR Connection Error:", err.toString()));
 
     // Search Functionality
     $("#searchBox").on("input", function () {
@@ -11,46 +19,50 @@
         });
     });
 
-    // Prevent duplicate event binding
-    $("#newsForm").off("submit").on("submit", function (event) {
+    $("#newsForm").submit(function (event) {
         event.preventDefault();
 
-        let formData = {
-            NewsArticleID: $("#newsId").val() ? parseInt($("#newsId").val()) : 0,
-            NewsTitle: $("#newsTitle").val().trim(),
-            Headline: $("#newsHeadline").val().trim(),
-            NewsContent: $("#newsContent").val().trim(),
-            NewsSource: $("#newsSource").val().trim(),
-            CategoryID: $("#newsCategory").val(),
-            NewsStatus: $("#newsStatus").val() === "true", // Convert to boolean
-            TagNames: $("#newsTags").val().trim() // Tags as a single string
-        };
+        let formData = new FormData();
+        formData.append("NewsArticleID", $("#newsId").val() || "0");
+        formData.append("NewsTitle", $("#newsTitle").val().trim());
+        formData.append("Headline", $("#newsHeadline").val().trim());
+        formData.append("NewsContent", $("#newsContent").val().trim());
+        formData.append("NewsSource", $("#newsSource").val().trim() || "");
+        formData.append("CategoryID", $("#newsCategory").val());
+        formData.append("NewsStatus", $("#newsStatus").val());
+        formData.append("TagNames", $("#newsTags").val().trim());
 
-        console.log("Creating/Updating News: ", JSON.stringify(formData));
+        console.log("Sending Data: ", JSON.stringify(Object.fromEntries(formData)));
 
         $.ajax({
             url: "?handler=CreateOrUpdate",
             type: "POST",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(formData),
+            processData: false,
+            contentType: false,
+            data: formData,
+            headers: {
+                "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+            },
             success: function (response) {
                 if (response.success) {
                     $("#newsModal").modal("hide");
-                    loadNewsArticles(); // ✅ Refresh only the data, not the whole page
+                    loadNewsArticles();
                     alert(response.message);
                 } else {
-                    alert(response.message);
+                    alert("❌ Error: " + response.message);
+                    console.log("Error Data: ", JSON.stringify(response.data));
                 }
             },
             error: function (xhr) {
-                console.error("Error:", xhr.responseText);
+                console.error("🚨 Server Error:", xhr.status, xhr.responseText);
+                alert("⚠️ Failed to create/update news.");
             }
         });
     });
+    loadNewsArticles();
 });
 
-// ✅ Load News Articles
+// Load News Articles
 function loadNewsArticles() {
     $.ajax({
         url: "?handler=GetNews",
@@ -74,7 +86,7 @@ function loadNewsArticles() {
     });
 }
 
-// ✅ Render a Single News Row
+// Render a Single News Row
 function renderNewsRow(article) {
     return `
         <tr id="newsRow-${article.newsArticleID}">
@@ -100,7 +112,7 @@ function renderNewsRow(article) {
     `;
 }
 
-// ✅ Open Create News Modal
+// Open Create News Modal
 function openCreateModal() {
     $("#modalTitle").html('<i class="fas fa-plus"></i> Add News');
     $("#newsId").val("");
@@ -110,7 +122,7 @@ function openCreateModal() {
     $("#newsModal").modal("show");
 }
 
-// ✅ Open Edit News Modal
+// Open Edit News Modal
 function openEditModal(newsId) {
     $.ajax({
         url: "?handler=GetNewsById",
@@ -125,42 +137,48 @@ function openEditModal(newsId) {
                 $("#newsTitle").val(news.newsTitle);
                 $("#newsHeadline").val(news.headline);
                 $("#newsContent").val(news.newsContent);
-                $("#newsTags").val(news.tagNames || ""); // ✅ Fixed tags display
-                $("#newsSource").val(news.newsSource);
+                $("#newsTags").val(news.tagNames || "");  // ✅ Populate tags correctly
+                $("#newsSource").val(news.newsSource || "");
                 $("#newsCategory").val(news.categoryID);
                 $("#newsStatus").val(news.newsStatus.toString());
                 $("#newsModal").modal("show");
             } else {
-                alert("Error fetching news details.");
+                alert("❌ Error fetching news details.");
             }
         },
         error: function (xhr) {
-            console.error("Error fetching news details:", xhr.responseText);
+            console.error("🚨 Error fetching news details:", xhr.responseText);
         }
     });
 }
-
-// Confirm & Delete News
 function confirmDelete(newsId) {
     if (!confirm("Are you sure you want to delete this article?")) return;
+
+    console.log(`🔍 Attempting to delete NewsArticleID: ${newsId}`);
 
     $.ajax({
         url: "?handler=DeleteNews",
         type: "POST",
-        data: JSON.stringify({ newsId: newsId }),
         contentType: "application/json",
+        data: JSON.stringify({ newsId: newsId }), // Ensure data is correctly formatted
         success: function (response) {
+            console.log(" Response from server:", response);
             if (response.success) {
+                console.log(`News article ${newsId} deleted successfully.`);
                 $(`#newsRow-${newsId}`).fadeOut(500, function () {
                     $(this).remove();
                 });
                 alert("News deleted successfully!");
             } else {
-                alert("Error deleting news.");
+                console.warn("⚠️ Server returned an error:", response.message);
+                alert(response.message);
             }
         },
         error: function (xhr) {
-            console.error("Error deleting news:", xhr.responseText);
+            console.error("❌ Error deleting news:", xhr.status, xhr.statusText);
+            console.error("📜 Response Text:", xhr.responseText);
+            alert("Failed to delete news article. Check console for details.");
         }
     });
 }
+

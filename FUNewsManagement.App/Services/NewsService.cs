@@ -10,65 +10,127 @@ namespace FUNewsManagement.App.Services
     public class NewsService : INewsService
     {
         private readonly IGenericRepository<NewsArticle> _newsRepository;
-        private readonly IGenericRepository<Tag> _tagRepository;
-        public NewsService(IGenericRepository<NewsArticle> newsRepository, IGenericRepository<Tag> tagRepository)
+        private readonly ITagService _tagService;
+        public NewsService(IGenericRepository<NewsArticle> newsRepository, ITagService tagService)
         {
             _newsRepository = newsRepository;
-            _tagRepository = tagRepository;
+            _tagService = tagService;
+        }
+        // Fetch Public News (Available to Everyone)
+        public async Task<IEnumerable<NewsArticleDTO>> GetPublicNewsAsync()
+        {
+            var newsList = await _newsRepository.GetAsync(
+                filter: n => n.NewsStatus == true, // Only Active News
+                orderBy: q => q.OrderByDescending(n => n.CreatedDate)
+            );
+
+            return newsList.Select(n => new NewsArticleDTO
+            {
+                NewsArticleID = n.NewsArticleId,
+                NewsTitle = n.NewsTitle,
+                Headline = n.Headline,
+                CreatedDate = n.CreatedDate ?? DateTime.UtcNow,
+                NewsContent = n.NewsContent ?? string.Empty,
+                NewsSource = n.NewsSource ?? "Unknown",
+                CategoryID = n.CategoryId ?? -1,
+                CategoryName = n.Category != null ? n.Category.CategoryName : "Uncategorized",
+                NewsStatus = n.NewsStatus ?? false,
+                CreatedByID = n.CreatedById ?? -1,
+                UpdatedByID = n.UpdatedById ?? -1,
+                ModifiedDate = n.ModifiedDate,
+                Tags = n.Tags.Select(t => new Tag { TagId = t.TagId, TagName = t.TagName }).ToList()
+            }).ToList();
         }
 
+        // Fetch News for Lecturers Only
+        public async Task<IEnumerable<NewsArticleDTO>> GetLecturerNewsAsync(short lecturerId)
+        {
+            if (lecturerId == -1) return Enumerable.Empty<NewsArticleDTO>();
+
+            var newsList = await _newsRepository.GetAsync(
+                filter: n => n.NewsStatus == true && n.CreatedById.GetValueOrDefault(-1) == lecturerId, // Only Active News by Lecturers
+                orderBy: q => q.OrderByDescending(n => n.CreatedDate)
+            );
+
+            return newsList.Select(n => new NewsArticleDTO
+            {
+                NewsArticleID = n.NewsArticleId,
+                NewsTitle = n.NewsTitle,
+                Headline = n.Headline,
+                CreatedDate = n.CreatedDate ?? DateTime.UtcNow,
+                NewsContent = n.NewsContent ?? string.Empty,
+                NewsSource = n.NewsSource ?? "Unknown",
+                CategoryID = n.CategoryId ?? -1,
+                CategoryName = n.Category != null ? n.Category.CategoryName : "Uncategorized",
+                NewsStatus = n.NewsStatus ?? false,
+                CreatedByID = n.CreatedById ?? -1,
+                UpdatedByID = n.UpdatedById ?? -1,
+                ModifiedDate = n.ModifiedDate,
+                Tags = n.Tags.Select(t => new Tag { TagId = t.TagId, TagName = t.TagName }).ToList()
+            }).ToList();
+        }
         // Get All News Articles (For Admin Dashboard)
         public async Task<IEnumerable<NewsArticle>> GetAllNewsAsync() =>
             await _newsRepository.GetAllAsync(include: q => q.Include(n => n.CreatedBy).Include(n => n.Category));
 
         // Add New Article
-        public async Task<bool> AddNewsAsync(NewsArticleDTO newsArticleDto)
+        public async Task<bool> AddNewsAsync(NewsArticleDTO newsDto)
         {
-            var newsArticle = new NewsArticle
+            try
             {
-                NewsTitle = newsArticleDto.NewsTitle,
-                Headline = newsArticleDto.Headline,
-                CreatedDate = DateTime.UtcNow,
-                NewsContent = newsArticleDto.NewsContent,
-                NewsSource = newsArticleDto.NewsSource,
-                CategoryId = newsArticleDto.CategoryID,
-                NewsStatus = newsArticleDto.NewsStatus,
-                CreatedById = newsArticleDto.CreatedByID,
-                ModifiedDate = DateTime.UtcNow,
-                Tags = new List<Tag>() // Initialize tag list
-            };
-
-            // Handle Tags
-            if (!string.IsNullOrEmpty(newsArticleDto.TagNames))
-            {
-                var tagNames = newsArticleDto.TagNames.Split(',')
-                    .Select(tag => tag.Trim())
-                    .Distinct()
-                    .ToList();
-
-                foreach (var tagName in tagNames)
+                var newsArticle = new NewsArticle
                 {
-                    var existingTag = await _tagRepository.GetAsync(t => t.TagName == tagName);
-                    Tag tag;
+                    NewsArticleId = string.IsNullOrEmpty(newsDto.NewsArticleID) ? Guid.NewGuid().ToString("N").Substring(0, 20) : newsDto.NewsArticleID, // Fix
+                    NewsTitle = newsDto.NewsTitle,
+                    Headline = newsDto.Headline,
+                    CreatedDate = DateTime.UtcNow,
+                    NewsContent = newsDto.NewsContent,
+                    NewsSource = newsDto.NewsSource,
+                    CategoryId = newsDto.CategoryID,
+                    NewsStatus = newsDto.NewsStatus,
+                    CreatedById = newsDto.CreatedByID,
+                    UpdatedById = newsDto.UpdatedByID,
+                    ModifiedDate = newsDto.ModifiedDate ?? DateTime.UtcNow
+                };
 
-                    if (existingTag.Any())
+                // Handle Tags
+                if (!string.IsNullOrEmpty(newsDto.TagNames))
+                {
+                    var tagNames = newsDto.TagNames.Split(',')
+                        .Select(tag => tag.Trim())
+                        .Distinct()
+                        .ToList();
+
+                    List<Tag> tagList = new();
+
+                    foreach (var tagName in tagNames)
                     {
-                        tag = existingTag.First(); // Use existing tag
-                    }
-                    else
-                    {
-                        tag = new Tag { TagName = tagName };
-                        await _tagRepository.AddAsync(tag);
+                        var existingTag = await _tagService.GetTagByNameAsync(tagName);
+                        if (existingTag != null)
+                        {
+                            tagList.Add(existingTag);
+                        }
+                        else
+                        {
+                            var newTag = new Tag { TagName = tagName };
+                            await _tagService.AddTagAsync(newTag);
+                            tagList.Add(newTag);
+                        }
                     }
 
-                    // Add the relationship in NewsTag table
-                    newsArticle.Tags.Add(tag);
+                    newsArticle.Tags = tagList;
                 }
-            }
 
-            await _newsRepository.AddAsync(newsArticle);
-            return true; 
+                await _newsRepository.AddAsync(newsArticle);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding news: {ex.Message}");
+                return false;
+            }
         }
+
 
         // Get News Report for a Specific Date Range (SORTED DESCENDING)
         public async Task<IEnumerable<NewsArticle>> GetNewsByDateRangeAsync(DateTime startDate, DateTime endDate)
@@ -164,7 +226,7 @@ namespace FUNewsManagement.App.Services
         }
 
         // Delete News Article
-        public async Task<bool> DeleteNewsAsync(int newsId)
+        public async Task<bool> DeleteNewsAsync(string newsId)
         {
             var existingNews = await _newsRepository.GetByIdAsync(newsId);
             if (existingNews == null) return false;

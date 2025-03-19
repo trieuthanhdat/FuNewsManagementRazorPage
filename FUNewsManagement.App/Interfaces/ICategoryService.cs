@@ -1,4 +1,5 @@
-﻿using FUNewsManagement.Domain.Entities;
+﻿using FUNewsManagement.Domain.DTOs;
+using FUNewsManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace FUNewsManagement.App.Interfaces
     {
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
         Task<Category?> GetCategoryByIdAsync(short categoryId);
-        Task<bool> AddCategoryAsync(Category category);
-        Task<bool> UpdateCategoryAsync(Category category);
+        Task<bool> AddCategoryAsync(CategoryDTO category);
+        Task<bool> UpdateCategoryAsync(CategoryDTO category);
         Task<bool> DeleteCategoryAsync(short categoryId);
     }
 
