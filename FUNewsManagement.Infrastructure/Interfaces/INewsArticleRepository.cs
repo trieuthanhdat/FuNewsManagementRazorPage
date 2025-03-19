@@ -14,11 +14,18 @@ namespace FUNewsManagement.Infrastructure.Interfaces
         Task<IEnumerable<NewsArticle>> GetActiveNewsAsync();
         Task<IEnumerable<NewsArticle>> GetNewsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<IEnumerable<NewsArticle>> SearchNewsAsync(string keyword, int? categoryId, DateTime? startDate, DateTime? endDate);
-        Task<NewsArticle> GetNewsByIdAsync(int id);
-        Task<int> DeleteAsync(int newsArticleID);
+        Task<NewsArticle> GetNewsByIdAsync(string id);
+        Task<bool> DeleteAsync(int newsArticleID); // Changed to bool for success/failure
         Task<IEnumerable<NewsArticleDTO>> GetAllNewsAsync();
-        //Task<int> GetMaxArticleIdAsync();
+
+        // Report-Specific Queries
+        Task<Dictionary<string, int>> GetNewsCountByAuthorAsync();
+        Task<Dictionary<string, int>> GetNewsCountByDateAsync();
+        Task<Dictionary<string, int>> GetNewsCountByCategoryAsync();
+
+        // Get News by Author & Category
         Task<List<NewsArticle>> GetNewsByAuthorAsync(int authorId);
         Task<List<NewsArticle>> GetNewsByCategoryIdAsync(int categoryId);
     }
+
 }

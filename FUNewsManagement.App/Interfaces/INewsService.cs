@@ -9,7 +9,11 @@ namespace FUNewsManagement.App.Interfaces
 {
     public interface INewsService
     {
+        Task<IEnumerable<NewsArticle>> GetNewsByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<IEnumerable<NewsArticle>> GetAllNewsAsync();
+        Task<Dictionary<string, int>> GetNewsCountByDateAsync();
+        Task<Dictionary<string, int>> GetNewsCountByCategoryAsync();
+        Task<Dictionary<string, int>> GetNewsCountByAuthorAsync();
         Task AddNewsAsync(NewsArticle newsArticle);
     }
 }

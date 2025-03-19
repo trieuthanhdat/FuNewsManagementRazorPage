@@ -1,96 +1,172 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using FUNewsManagement.App.Interfaces;
-using ClosedXML.Excel;
-using iTextSharp.text;
+using FUNewsManagement.Domain.Entities;
+using FUNewsManagement.Domain.Shared;
 using iTextSharp.text.pdf;
-using System.IO;
-using FUNewsManagement.App.Services;
+using iTextSharp.text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using ClosedXML.Excel;
 
 namespace TrieuThanhDatRazorPages.Pages.Admin
 {
-    public class ReportsModel : PageModel
+
+    [Authorize(Roles = "Admin")]
+    public class ReportModel : PageModel
     {
-        private readonly IAccountService _accountService;
-        private readonly INewsService _newsService;
+        private readonly INewsService _newsArticleService;
 
-        public ReportsModel(IAccountService accountService, INewsService newsService)
+        public ReportModel(INewsService newsArticleService)
         {
-            _accountService = accountService;
-            _newsService = newsService;
+            _newsArticleService = newsArticleService;
         }
 
-        public int TotalUsers { get; set; }
-        public int ActiveNewsArticles { get; set; }
-        public int PendingApprovals { get; set; }
+        public List<NewsArticle> ReportData { get; set; } = new List<NewsArticle>();
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task OnGetAsync()
         {
-            //TotalUsers = await _accountService.GetTotalUsersAsync();
-            //ActiveNewsArticles = await _newsService.GetActiveNewsCountAsync();
-            //PendingApprovals = await _newsService.GetPendingApprovalCountAsync();
-            return Page();
+            // Default: Get last 7 days report
+            DateTime startDate = DateTime.UtcNow.AddDays(-7);
+            DateTime endDate = DateTime.UtcNow;
+
+            ReportData = (await _newsArticleService.GetNewsByDateRangeAsync(startDate, endDate)).ToList();
         }
-
-        // Generate Excel Report
-        public async Task<IActionResult> OnPostGenerateExcelReportAsync()
+        public async Task<IActionResult> OnGetGetReportAsync(DateTime startDate, DateTime endDate, string? search)
         {
-            var users = await _accountService.GetAllAccountsAsync();
+            var articles = await _newsArticleService.GetNewsByDateRangeAsync(startDate, endDate);
 
-            using var workbook = new XLWorkbook();
-            var worksheet = workbook.Worksheets.Add("Users Report");
-            worksheet.Cell(1, 1).Value = "User ID";
-            worksheet.Cell(1, 2).Value = "Name";
-            worksheet.Cell(1, 3).Value = "Email";
-            worksheet.Cell(1, 4).Value = "Role";
-
-            int row = 2;
-            foreach (var user in users)
+            if (!string.IsNullOrEmpty(search))
             {
-                worksheet.Cell(row, 1).Value = user.AccountID;
-                worksheet.Cell(row, 2).Value = user.AccountName;
-                worksheet.Cell(row, 3).Value = user.AccountEmail;
-                worksheet.Cell(row, 4).Value = user.AccountRole.ToString();
-                row++;
+                search = search.ToLower();
+                articles = articles.Where(a =>
+                    a.NewsTitle.ToLower().Contains(search) ||
+                    a.Headline.ToLower().Contains(search) ||
+                    (a.CreatedBy?.AccountName ?? "").ToLower().Contains(search)
+                ).ToList();
             }
 
-            using var stream = new MemoryStream();
-            workbook.SaveAs(stream);
-            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "UserReport.xlsx");
-        }
-
-        // Generate PDF Report
-        public async Task<IActionResult> OnPostGeneratePdfReportAsync()
-        {
-            var users = await _accountService.GetAllAccountsAsync();
-
-            using var stream = new MemoryStream();
-            var document = new Document();
-            PdfWriter.GetInstance(document, stream);
-            document.Open();
-
-            document.Add(new Paragraph("User Report"));
-            document.Add(new Paragraph("Generated on: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
-            document.Add(new Paragraph("\n"));
-
-            PdfPTable table = new PdfPTable(4);
-            table.AddCell("User ID");
-            table.AddCell("Name");
-            table.AddCell("Email");
-            table.AddCell("Role");
-
-            foreach (var user in users)
+            if (!articles.Any())
             {
-                table.AddCell(user.AccountID.ToString());
-                table.AddCell(user.AccountName);
-                table.AddCell(user.AccountEmail);
-                table.AddCell(user.AccountRole.ToString());
+                return new JsonResult(new { success = false, message = "No data found" });
             }
 
-            document.Add(table);
-            document.Close();
+            var reportData = articles.Select(a => new
+            {
+                newsArticleId = a.NewsArticleId,
+                newsTitle = a.NewsTitle,
+                headline = a.Headline,
+                createdDate = a.CreatedDate?.ToString("yyyy-MM-dd"),
+                createdBy = a.CreatedBy?.AccountName
+            });
 
-            return File(stream.ToArray(), "application/pdf", "UserReport.pdf");
+            return new JsonResult(new { success = true, data = reportData });
+        }
+        public async Task<IActionResult> OnGetExportExcelAsync(DateTime startDate, DateTime endDate)
+        {
+            var articles = await _newsArticleService.GetNewsByDateRangeAsync(startDate, endDate);
+
+            if (!articles.Any())
+            {
+                return new JsonResult(new { success = false, message = "No data available for this period" });
+            }
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("News Report");
+                var currentRow = 1;
+
+                // Headers
+                worksheet.Cell(currentRow, 1).Value = "ID";
+                worksheet.Cell(currentRow, 2).Value = "Title";
+                worksheet.Cell(currentRow, 3).Value = "Headline";
+                worksheet.Cell(currentRow, 4).Value = "Created Date";
+                worksheet.Cell(currentRow, 5).Value = "Author";
+
+                // Styling Headers
+                worksheet.Range("A1:E1").Style.Font.Bold = true;
+                worksheet.Range("A1:E1").Style.Fill.BackgroundColor = XLColor.LightGray;
+
+                // Data Rows
+                foreach (var article in articles)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = article.NewsArticleId;
+                    worksheet.Cell(currentRow, 2).Value = article.NewsTitle;
+                    worksheet.Cell(currentRow, 3).Value = article.Headline;
+                    worksheet.Cell(currentRow, 4).Value = article.CreatedDate?.ToString("yyyy-MM-dd");
+                    worksheet.Cell(currentRow, 5).Value = article.CreatedBy?.AccountName ?? "Unknown";
+                }
+
+                // Auto-fit columns
+                worksheet.Columns().AdjustToContents();
+
+                // Save as Memory Stream
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "NewsReport.xlsx");
+                }
+            }
+        }
+        public async Task<IActionResult> OnGetExportPdfAsync(DateTime startDate, DateTime endDate)
+        {
+            var articles = await _newsArticleService.GetNewsByDateRangeAsync(startDate, endDate);
+
+            if (!articles.Any())
+            {
+                return new JsonResult(new { success = false, message = "No data available for this period" });
+            }
+
+            using (var stream = new MemoryStream())
+            {
+                Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+                PdfWriter writer = PdfWriter.GetInstance(document, stream);
+                document.Open();
+
+                // Title
+                Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16);
+                Paragraph title = new Paragraph("News Report", titleFont);
+                title.Alignment = Element.ALIGN_CENTER;
+                document.Add(title);
+                document.Add(new Paragraph("\n"));
+
+                // Table
+                PdfPTable table = new PdfPTable(5) { WidthPercentage = 100 };
+                table.SetWidths(new float[] { 10f, 30f, 30f, 20f, 20f });
+
+                // Table Header
+                string[] headers = { "ID", "Title", "Headline", "Created Date", "Author" };
+                foreach (string header in headers)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(header, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12)))
+                    {
+                        BackgroundColor = new BaseColor(220, 220, 220),
+                        HorizontalAlignment = Element.ALIGN_CENTER
+                    };
+                    table.AddCell(cell);
+                }
+
+                // Data Rows
+                foreach (var article in articles)
+                {
+                    table.AddCell(article.NewsArticleId.ToString());
+                    table.AddCell(article.NewsTitle);
+                    table.AddCell(article.Headline);
+                    table.AddCell(article.CreatedDate?.ToString("yyyy-MM-dd"));
+                    table.AddCell(article.CreatedBy?.AccountName ?? "Unknown");
+                }
+
+                document.Add(table);
+                document.Close();
+
+                return File(stream.ToArray(), "application/pdf", "NewsReport.pdf");
+            }
         }
     }
+
 }

@@ -25,10 +25,16 @@ builder.Services.AddHttpContextAccessor();
 
 // Dependency Injection (Repositories & Services)
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+// Register Services
+// Generic Repository for NewsArticles
+builder.Services.AddScoped<IGenericRepository<NewsArticle>, GenericRepository<NewsArticle>>();
+builder.Services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
+
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<NewsService>();
+builder.Services.AddScoped<INewsService, NewsService>();
+
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<UserService>();
